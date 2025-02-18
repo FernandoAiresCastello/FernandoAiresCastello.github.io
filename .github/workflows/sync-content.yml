@@ -16,14 +16,14 @@ jobs:
       - name: Checkout GitHub Pages Repo
         uses: actions/checkout@v4
 
-    - name: Clone Specific Folder from External Repository
-      run: |
-        git clone --depth 1 --filter=blob:none --sparse https://github.com/FernandoAiresCastello/PTM.git temp-repo
-        cd temp-repo
-        git sparse-checkout set PATH/TO/FOLDER
-        cd ..
-        rsync -av --exclude='.git' temp-repo/0.3/Build/HELP/ ./PTM/0.3/HELP/
-        rm -rf temp-repo
+      - name: Clone Specific Folder from External Repository
+        run: |
+          git clone --depth 1 --filter=blob:none --sparse https://github.com/FernandoAiresCastello/PTM.git temp-repo
+          cd temp-repo
+          git sparse-checkout set PATH/TO/FOLDER
+          cd ..
+          rsync -av --exclude='.git' temp-repo/0.3/Build/HELP/ ./PTM/0.3/HELP/
+          rm -rf temp-repo
 
       - name: Commit and Push Changes
         run: |
