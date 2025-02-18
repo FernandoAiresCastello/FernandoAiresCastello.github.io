@@ -22,7 +22,7 @@ jobs:
           cd temp-repo
           git sparse-checkout set temp-repo
           cd ..
-          rsync -av --exclude='.git' temp-repo ./PTM/0.3/HELP/
+          rsync -av --exclude='.git' temp-repo PTM/0.3/HELP/
           rm -rf temp-repo/{*,.*}
 
       - name: Commit and Push Changes
